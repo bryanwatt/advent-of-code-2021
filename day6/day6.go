@@ -3,8 +3,6 @@ package main
 import (
 	"adventofcode/shared"
 	"fmt"
-	"strconv"
-	"strings"
 )
 
 func main() {
@@ -23,7 +21,7 @@ func main() {
 }
 
 func getFishCount(startingFish string, daysToCalc int) int {
-	fishArray := getIntArrayFromInput(startingFish)
+	fishArray := shared.StringToIntArr(startingFish)
 
 	// Set up a fish "map" to store the number of fish at each age
 	fm := map[int]int{
@@ -59,14 +57,4 @@ func getFishCount(startingFish string, daysToCalc int) int {
 	}
 
 	return fm[0] + fm[1] + fm[2] + fm[3] + fm[4] + fm[5] + fm[6] + fm[7] + fm[8]
-}
-
-func getIntArrayFromInput(input string) []int {
-	numsStr := strings.Split(input, ",")
-	numArray := []int{}
-	for i := 0; i < len(numsStr); i++ {
-		intVal, _ := strconv.Atoi(numsStr[i])
-		numArray = append(numArray, intVal)
-	}
-	return numArray
 }
