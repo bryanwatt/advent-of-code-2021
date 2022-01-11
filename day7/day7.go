@@ -20,11 +20,9 @@ func Day7(desc string, fileName string) {
 }
 
 func getEfficientPosition(crabPositions []int) (int, int) {
-	// Get the max horizontal Pos of the crabs
 	maxX := 0
-
-	// Create a map of the positions and crab counts
 	posMap := make(map[int]int)
+
 	for _, pos := range crabPositions {
 		if pos > maxX {
 			maxX = pos
@@ -34,6 +32,7 @@ func getEfficientPosition(crabPositions []int) (int, int) {
 
 	effFuelCost := 0
 	effPos := 0
+
 	// Iterate through each position, and calculate the total fuel of all crabs to get there
 	for x := 0; x <= maxX; x++ {
 		posFuelCost := 0
