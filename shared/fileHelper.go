@@ -63,3 +63,25 @@ func ReadFileLineToIntArr(fileName string) ([]int, error) {
 	}
 	return intArr, scanner.Err()
 }
+
+// readLines reads a whole file into memory
+// and returns an two integer slice of its lines.
+func ReadFileLineToIntGrid(fileName string) ([][]int, error) {
+	file := openFile(fileName)
+	defer closeFile(file)
+
+	intGrid := [][]int{}
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		// string to int array
+		textLine := scanner.Text()
+		intVals := make([]int, len(textLine))
+		for i := 0; i < len(textLine); i++ {
+			intVals[i], _ = strconv.Atoi(string(textLine[i]))
+		}
+
+		intGrid = append(intGrid, intVals)
+	}
+	return intGrid, scanner.Err()
+}

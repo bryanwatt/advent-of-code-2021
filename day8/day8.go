@@ -47,10 +47,17 @@ func totaldisplayOutput(inputLines []string) int {
 		segMap := make(map[string]string)
 
 		// THIS IS DIRTY filthy CODE!
+		// Set unique segment count numbers
+		// 1: 2 segments
+		len2 := getSegmentsWithLength(preDigits, 2)[0]
+		inputSegmentMap[SortString(len2)] = 1
+
+		// 7: 3 segments
+		len3 := getSegmentsWithLength(preDigits, 3)[0]
+		inputSegmentMap[SortString(len2)] = 1
 
 		// Difference between len2 and len3 will give "a"
-		len2 := getSegmentsWithLength(preDigits, 2)[0]
-		len3 := getSegmentsWithLength(preDigits, 3)[0]
+
 		len4 := getSegmentsWithLength(preDigits, 4)[0]
 		len5s := getSegmentsWithLength(preDigits, 5)
 		len6s := getSegmentsWithLength(preDigits, 6)
